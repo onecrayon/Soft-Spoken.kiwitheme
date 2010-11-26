@@ -82,7 +82,7 @@ body {
 	display: block;
 	position: relative;
 	top: -1px;
-	background: #fcfcfc -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .2)), color-stop(.2, rgba(255, 255, 255, .1)), color-stop(.90, rgba(0, 0, 0, .03)), to(rgba(0, 0, 0, .07)));
+	background: #f7f7f7 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .3)), color-stop(.2, rgba(255, 255, 255, .15)), color-stop(.85, rgba(0, 0, 0, .03)), to(rgba(0, 0, 0, .1)));
 	overflow: visible;
 	min-height: 68px;
 	margin: 0 8px 0 73px;
@@ -211,7 +211,7 @@ body {
 }
 
 .tweet.selected .bubble {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .2)), to(rgba(255, 255, 255, .2)));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .3)), to(rgba(255, 255, 255, .3)));
 	-webkit-border-image: url('images/tab-active.png') 19 12 12 17 repeat;
 }
 
@@ -240,7 +240,7 @@ body {
 /* Styles mentions and tweets from Kiwi User */
 
 .tweet.mentionMe .bubble {
-	background-color: #f4fdff;
+	background-color: #e3faff;
 }
 
 /* Direct Messages */
@@ -255,7 +255,7 @@ body {
 }
 
 .tweet.direct .bubble {
-	background-color: #f4fff4;
+	background-color: #e4ffe3;
 }
 
 /* Style reply to tweet button */
@@ -319,7 +319,7 @@ body {
 /* Color tags */
 
 .tweet.tag .bubble {
-	background-color: #fff4f4;
+	background-color: #ffe3e4;
 }
 
 .tweet.direct .attribution {
