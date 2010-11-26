@@ -1,0 +1,345 @@
+/* Styles background of Kiwi window */
+
+body {
+	background-color: rgba(210,210,210,1.0);
+	-webkit-user-select: none;
+	word-wrap: break-word;
+	widows: 100%;
+	overflow-x: hidden;
+	font: 12px/1.33 "Helvetica Neue";
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.account {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.timeline {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* Styles links and Twiter @ mentions and # hash tags */
+
+:link {
+	text-decoration: none;
+}
+
+.tweet .text .link {
+	work-wrap: break-word;
+	color: #4B83CD;
+}
+
+.tweet .text .link:hover {
+	text-decoration: underline;
+}
+
+.tweet .text .mention,
+.tweet .text .hashtag {
+	display: inline;
+	word-break: break-word;
+	font-weight: bold;
+}
+
+.tweet .text .hashtag {
+	color: #9f9f9f;
+}
+
+.tweet .text .mention:hover,
+.tweet .text .hashtag:hover {
+	text-decoration: underline;
+}
+
+/* Styles the look and feel of the tweets */
+
+.tweet {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 5px 0 3px;
+	border-top: 1px solid rgb(210, 210, 210);
+	border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.tweet-inner:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.tweet .bubble {
+	display: block;
+	position: relative;
+	top: -1px;
+	background: #fcfcfc -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .2)), color-stop(.2, rgba(255, 255, 255, .1)), color-stop(.90, rgba(0, 0, 0, .03)), to(rgba(0, 0, 0, .07)));
+	overflow: visible;
+	min-height: 68px;
+	margin: 0 8px 0 73px;
+	border-width: 19px 12px 12px 17px;
+	-webkit-border-image: url('images/tab-inactive.png') 19 12 12 17 repeat;
+	-webkit-background-origin: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.tweet .bubble-inner {
+	position: relative;
+	top: -10px;
+	margin: 0 0 -12px;
+}
+
+.tweet .text {
+	-webkit-user-select: text;
+	clear: right;
+	padding-top: 3px;
+}
+
+.tweet .recipient {
+	font-style: italic;
+	padding-bottom: 3px;
+	display: none;
+}
+
+.tweet.direct .recipient {
+	display: block;
+}
+
+.tweet .name {
+	float: left;
+	font-weight: bold;
+}
+
+.tweet .date {
+	float: right;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 1.6;
+	color: #9f9f9f;
+}
+
+.tweet .retweetAuthor {
+	font-size: 10px;
+	line-height: 1.6;
+	color: #9f9f9f;
+	font-weight: normal;
+	position: relative;
+	top: -3px;
+	margin: 0 0 -1px;
+}
+
+.retweetAuthor .retweetSymbol {
+	content: url('images/retweet.png');
+	position: relative;
+	top: 3px;
+	margin: 0 3px 0 0;
+}
+
+.tweet .image {
+	display: block;
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin: 0 8px;
+	background-color: white;
+	overflow: hidden;
+	border-width: 9px;
+	-webkit-border-image: url('images/image-inactive.png') 9 9 9 9 repeat;
+}
+
+.tweet .image img {
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+}
+
+.tweet img.retweetImage {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	top: 45px;
+	left: 50px;
+	width: 28px;
+	height: 28px;
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, .4);
+	background-color: white;
+}
+
+.tweet.retweet img.retweetImage {
+	display: block;
+}
+
+/* tweets from me */
+
+.tweet.me .bubble {
+	margin: 0 73px 0 8px;
+	border-width: 19px 17px 12px 12px;
+	-webkit-border-image: url('images/tab-inactive-reverse.png') 19 17 12 12 repeat;
+}
+
+.tweet.selected.me .bubble {
+	-webkit-border-image: url('images/tab-active-reverse.png') 19 17 12 12 repeat;
+}
+
+.tweet.me .text {
+	clear: left;
+}
+
+.tweet.me .image {
+	float: right;
+}
+
+/* when a tweet is selected -- the selected class will be added */
+
+/* this means that you can modify any of your css by using a selector like this */
+
+.tweet.selected {
+	background: #ddd;
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	-webkit-mask: url('images/fadeout.png') repeat-y;
+	-webkit-mask-position: right top;
+}
+
+.tweet.selected .bubble {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .2)), to(rgba(255, 255, 255, .2)));
+	-webkit-border-image: url('images/tab-active.png') 19 12 12 17 repeat;
+}
+
+.tweet.selected .image {
+	-webkit-border-image: url('images/image-active.png') 9 9 9 9 repeat;
+}
+
+/* this is the main block of tweet text */
+
+/* notice the "webkit-user-select" style */
+
+/* by default all selection is disabled in the timeline */
+
+/* enabling it for the text allows people to select items
+/* for copy and pasted */
+
+/* when a tweet is new, the new class will be added */
+
+/* this means that you can modify any of your css by using a selector like this */
+
+/* TODO */
+.tweet.new .name {
+	color: #4B83CD;
+}
+
+/* Styles mentions and tweets from Kiwi User */
+
+.tweet.mentionMe .bubble {
+	background-color: #f4fdff;
+}
+
+/* Direct Messages */
+
+.tweet.direct, 
+.tweet.direct.new, 
+.tweet.direct.selected, 
+.tweet.direct.me, 
+.tweet.direct.me.new, 
+.tweet.direct.me.selected {
+	
+}
+
+.tweet.direct .bubble {
+	background-color: #f4fff4;
+}
+
+/* Style reply to tweet button */
+
+.tweet-inner {
+	display: block;
+	position: relative;
+}
+
+.reply-button {
+	float: right;
+	width: 11px;
+	height: 12px;
+	border: 0;
+	margin: 2px 0 0 5px;
+	padding: 0;
+	background: url('images/reply.png') no-repeat 0 0;
+	cursor: pointer;
+}
+
+.reply-button:hover {
+	background: url('images/reply.png') no-repeat -16px 0px;
+}
+
+/* Styles the favorite button which allows the user to mark a tweet as a favorite. Currently not displayed. */
+
+.tweet.me .favorite-button, .tweet.direct .favorite-button {
+	display: none;
+}
+
+.favorite-button {
+	display: block;
+	position: absolute;
+	top: 3px;
+	right: 11px;
+	width: 13px;
+	height: 13px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: url('images/fav.png') no-repeat 0 0;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.tweet:hover .favorite-button {
+	background: url('images/fav.png') no-repeat 0 0px;
+	opacity: 0.25;
+}
+
+.tweet .favorite-button:hover {
+	background: url('images/fav.png') no-repeat 0 0px;
+	opacity: 0.75;
+}
+
+.tweet.favorite .favorite-button {
+	background: url('images/fav.png') no-repeat 0 -13px;
+	opacity: 1;
+}
+
+/* Color tags */
+
+.tweet.tag .bubble {
+	background-color: #fff4f4;
+}
+
+.tweet.direct .attribution {
+	display: none;
+}
+
+#profileWrapper {
+	z-index: 10000;
+}
+
+#softspoken-preloader {
+	background: url('images/tab-active.png') top left no-repeat, url('images/tab-active-reverse.png') top center no-repeat, url('images/image-active.png') top right no-repeat;
+	height: 1px;
+	overflow: hidden;
+	opacity: .00001;
+}
+
+/* Styling for description pages */
+
+#constraint {
+	max-width: 365px;
+	margin: 5px auto -5px;
+}
