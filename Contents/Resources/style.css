@@ -1,4 +1,19 @@
-/* Styles background of Kiwi window */
+/*
+Theme: Soft Spoken
+Author: Ian Beck <http://onecrayon.com>
+
+The Soft Spoken CSS uses a combination of border images and CSS gradients to achieve its look because current versions of WebKit do not process single pixel borders on rounded corners well enough (there's usually a couple of pixels of background color bleeding through on the outer edge).
+
+The approach for both user images and the speech bubbles is that the border image has a transparent middle and solid external color. For the bubbles, the background image is a very light CSS gradient that overlays the background color, giving it the "bubbled" look.
+
+Because the center of the border-image is transparent, you can easily change the color of the bubble (or the border around user images) by changing the background color.  On hover, a different set of border images is used to match the active background.
+
+The down side of this method is that it is much more difficult to change the gray background of the window because you need to adjust the gray in the CSS and in the images. However, the PSDs should make this pretty simple if you feel like doing that (just remember to export for web, and the slices will take care of the rest).
+
+I love WebKit. This kind of border-image magic is still years away from being viable on the mainstream web.
+*/
+
+/* Styles background of Kiwi window and do a general reset of styles */
 
 body {
 	background-color: rgba(210,210,210,1.0);
@@ -70,6 +85,11 @@ body {
 	border-bottom: 1px solid rgb(210, 210, 210);
 }
 
+.tweet-inner {
+	display: block;
+	position: relative;
+}
+
 .tweet-inner:after {
 	content: ".";
 	display: block;
@@ -127,6 +147,24 @@ body {
 	color: #9f9f9f;
 }
 
+.tweet .image {
+	display: block;
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin: 0 8px;
+	background-color: #fff;
+	overflow: hidden;
+	border-width: 9px;
+	-webkit-border-image: url('images/image-inactive.png') 9 9 9 9 repeat;
+}
+
+.tweet .image img {
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+}
+
 .tweet .retweetAuthor {
 	font-size: 10px;
 	line-height: 1.6;
@@ -142,24 +180,6 @@ body {
 	position: relative;
 	top: 3px;
 	margin: 0 3px 0 0;
-}
-
-.tweet .image {
-	display: block;
-	float: left;
-	width: 48px;
-	height: 48px;
-	margin: 0 8px;
-	background-color: white;
-	overflow: hidden;
-	border-width: 9px;
-	-webkit-border-image: url('images/image-inactive.png') 9 9 9 9 repeat;
-}
-
-.tweet .image img {
-	width: 48px;
-	height: 48px;
-	cursor: pointer;
 }
 
 .tweet img.retweetImage {
@@ -178,7 +198,26 @@ body {
 	display: block;
 }
 
-/* tweets from me */
+/* Selected tweets */
+
+.tweet.selected {
+	background: #ddd;
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	-webkit-mask: url('images/fadeout.png') repeat-y;
+	-webkit-mask-position: right top;
+}
+
+.tweet.selected .bubble {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .3)), to(rgba(255, 255, 255, .3)));
+	-webkit-border-image: url('images/tab-active.png') 19 12 12 17 repeat;
+}
+
+.tweet.selected .image {
+	-webkit-border-image: url('images/image-active.png') 9 9 9 9 repeat;
+}
+
+/* User's tweets */
 
 .tweet.me .bubble {
 	margin: 0 73px 0 8px;
@@ -198,72 +237,31 @@ body {
 	float: right;
 }
 
-/* when a tweet is selected -- the selected class will be added */
+/* New tweets */
 
-/* this means that you can modify any of your css by using a selector like this */
-
-.tweet.selected {
-	background: #ddd;
-	border-top: 1px solid rgba(255, 255, 255, .1);
-	border-bottom: 1px solid rgba(255, 255, 255, .1);
-	-webkit-mask: url('images/fadeout.png') repeat-y;
-	-webkit-mask-position: right top;
-}
-
-.tweet.selected .bubble {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .3)), to(rgba(255, 255, 255, .3)));
-	-webkit-border-image: url('images/tab-active.png') 19 12 12 17 repeat;
-}
-
-.tweet.selected .image {
-	-webkit-border-image: url('images/image-active.png') 9 9 9 9 repeat;
-}
-
-/* this is the main block of tweet text */
-
-/* notice the "webkit-user-select" style */
-
-/* by default all selection is disabled in the timeline */
-
-/* enabling it for the text allows people to select items
-/* for copy and pasted */
-
-/* when a tweet is new, the new class will be added */
-
-/* this means that you can modify any of your css by using a selector like this */
-
-/* TODO */
 .tweet.new .name {
 	color: #4B83CD;
 }
 
-/* Styles mentions and tweets from Kiwi User */
+/* Mentions */
 
 .tweet.mentionMe .bubble {
 	background-color: #d2f2fd;
 }
 
-/* Direct Messages */
-
-.tweet.direct, 
-.tweet.direct.new, 
-.tweet.direct.selected, 
-.tweet.direct.me, 
-.tweet.direct.me.new, 
-.tweet.direct.me.selected {
-	
-}
+/* Direct messages */
 
 .tweet.direct .bubble {
 	background-color: #e4ffe3;
 }
 
-/* Style reply to tweet button */
+/* Color tags; keeping it simple for this theme. If people want to support color labels, they can hack that in themselves or use a different theme. */
 
-.tweet-inner {
-	display: block;
-	position: relative;
+.tweet.tag .bubble {
+	background-color: #ffd5d4;
 }
+
+/* Reply button */
 
 .reply-button {
 	float: right;
@@ -280,7 +278,7 @@ body {
 	background: url('images/reply.png') no-repeat -16px 0px;
 }
 
-/* Styles the favorite button which allows the user to mark a tweet as a favorite. Currently not displayed. */
+/* Favorites button. Currently not displayed, because honestly who does that often enough to need a button? */
 
 .tweet.me .favorite-button, .tweet.direct .favorite-button {
 	display: none;
@@ -316,11 +314,7 @@ body {
 	opacity: 1;
 }
 
-/* Color tags */
-
-.tweet.tag .bubble {
-	background-color: #ffd5d4;
-}
+/* This junk was in the theme that I started modifying; no idea if it's really necessary, but may as well leave it */
 
 .tweet.direct .attribution {
 	display: none;
@@ -330,6 +324,8 @@ body {
 	z-index: 10000;
 }
 
+/* This helps to prevent the graphics flash that otherwise occurs when selecting tweets the first time after launching the program */
+
 #softspoken-preloader {
 	background: url('images/tab-active.png') top left no-repeat, url('images/tab-active-reverse.png') top center no-repeat, url('images/image-active.png') top right no-repeat;
 	height: 1px;
@@ -337,7 +333,7 @@ body {
 	opacity: .00001;
 }
 
-/* Styling for description pages */
+/* Description page width constraint */
 
 #constraint {
 	max-width: 365px;
