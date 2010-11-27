@@ -240,7 +240,7 @@ body {
 /* Styles mentions and tweets from Kiwi User */
 
 .tweet.mentionMe .bubble {
-	background-color: #e3faff;
+	background-color: #d2f2fd;
 }
 
 /* Direct Messages */
@@ -319,7 +319,7 @@ body {
 /* Color tags */
 
 .tweet.tag .bubble {
-	background-color: #ffe3e4;
+	background-color: #ffd5d4;
 }
 
 .tweet.direct .attribution {
