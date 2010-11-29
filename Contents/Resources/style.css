@@ -63,6 +63,8 @@ body {
 	display: inline;
 	word-break: break-word;
 	font-weight: bold;
+	/* We bump the line-height down a pixel to properly align two-line replies with the images */
+	line-height: .9375;
 }
 
 .tweet .text .hashtag {
