@@ -2,33 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleGetInfoString</key>
-	<string>Soft Spoken</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.onecrayon.kiwitheme.softspoken</string>
-	<key>css</key>
-	<string>style.css</string>
-	<key>customScroller</key>
-	<true/>
-	<key>description</key>
-	<string>description/index.html</string>
-	<key>icon</key>
-	<string>icon.icns</string>
-	<key>scrollerBackgroundImage</key>
-	<string>scrollerBackground.png</string>
 	<key>scrollerKnobImage</key>
 	<string>scrollerKnob.png</string>
 	<key>scrollerSlotImage</key>
 	<string>scrollerSlot.png</string>
-	<key>timelineInsetColor</key>
-	<string>#ffffff</string>
+	<key>scrollerBackgroundImage</key>
+	<string>scrollerBackground.tif</string>
 	<key>timelineInsetX</key>
 	<integer>0</integer>
-	<key>timelineTemplate</key>
-	<string>timelineTemplate.html</string>
+	<key>timelineInsetColor</key>
+	<string>#ffffff</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Soft Spoken</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.onecrayon.kiwitheme.softspoken</string>
 	<key>title</key>
 	<string>Soft Spoken</string>
+	<key>icon</key>
+	<string>icon.icns</string>
+	<key>timelineTemplate</key>
+	<string>timelineTemplate.html</string>
 	<key>tweetTemplate</key>
 	<string>tweetTemplate.html</string>
+	<key>css</key>
+	<string>style.css</string>
+	<key>description</key>
+	<string>description/index.html</string>
 </dict>
 </plist>
