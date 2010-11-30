@@ -200,6 +200,12 @@ body {
 	display: block;
 }
 
+.tweet.me img.retweetImage {
+	left: auto;
+	top: 40px;
+	right: 48px;
+}
+
 /* Selected tweets */
 
 .tweet.selected {
