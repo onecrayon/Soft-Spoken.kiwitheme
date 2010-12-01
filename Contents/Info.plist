@@ -7,7 +7,7 @@
 	<key>scrollerSlotImage</key>
 	<string>scrollerSlot.png</string>
 	<key>scrollerBackgroundImage</key>
-	<string>scrollerBackground.tif</string>
+	<string>scrollerBackground.png</string>
 	<key>timelineInsetX</key>
 	<integer>0</integer>
 	<key>timelineInsetColor</key>
